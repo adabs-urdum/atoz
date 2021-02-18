@@ -1,0 +1,451 @@
+// Styles
+// name mixin after scss component
+@mixin styles($type: "") {
+  // get Basesize in correct relation to design width
+  $BS: getBaseSize($type);
+
+  html {
+    font-family: $FontFamilyMain;
+    font-weight: 300;
+    // only set font-size here, if really needed
+    // font-size: 16px;
+    line-height: 143%;
+    color: $Black;
+    background-color: $Blue;
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+
+  body {
+    @include bsFontSize($BS, $BaseRemSize);
+    line-height: 190%;
+    // max-width: $ScreendesignWidthMAX + 0px;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  main {
+    display: flex;
+    height: 100%;
+  }
+
+  section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    // border: solid $Yellow $BS * 10;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 143%;
+    font-weight: 700;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h1 {
+    @include bsFontSize($BS, 62);
+  }
+
+  h2 {
+    @include bsFontSize($BS, 44);
+  }
+
+  h3 {
+    @include bsFontSize($BS, 36);
+  }
+
+  h4 {
+    @include bsFontSize($BS, 26);
+  }
+
+  h5,
+  h6 {
+    @include bsFontSize($BS, 20);
+  }
+
+  input,
+  button {
+    font-family: $FontFamilyMain;
+  }
+
+  p {
+    padding: 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul,
+  li {
+    padding: 0;
+    list-style: none;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li {
+    // position: relative;
+    padding-left: $BS * 20;
+
+    &:before {
+      content: "\2022";
+      margin-left: $BS * -20;
+      margin-right: $BS * 10;
+      font-size: 110%;
+      line-height: 50%;
+    }
+  }
+
+  a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      border-bottom: $BS $Black solid;
+    }
+
+    &:hover {
+    }
+
+    &:active {
+    }
+  }
+
+  code {
+    display: block;
+    background-color: $Black;
+    color: $White;
+    border-radius: $BS * 2;
+    padding: $BS * 14 $BS * 16 $BS * 16;
+    margin: $BS * 16 0;
+  }
+
+  .button {
+    display: inline-block;
+    font-weight: 700;
+    background: $Black;
+    color: $Blue;
+    padding: $BS * 18 $BS * 50 $BS * 18;
+    text-transform: uppercase;
+    transition: background 0.3s ease-out;
+    text-decoration: none;
+    margin-right: $BS * 16;
+    margin-bottom: $BS * 16;
+
+    &:hover {
+      background: $BlueDark;
+      color: $Blue;
+    }
+
+    &:after {
+      content: none;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+    background: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    text-align: inherit;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  img,
+  canvas {
+    display: block;
+  }
+
+  #trigger1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #trigger2 {
+    position: absolute;
+    top: 0;
+    left: 200vw;
+  }
+
+  .imgWrapper {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+
+    &__bg {
+      width: $BS * 768;
+      opacity: 0;
+    }
+
+    &__brushStrokes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    &__splatter1 {
+      position: absolute;
+      top: 4%;
+      left: 8%;
+      width: 25%;
+    }
+
+    &__block1 {
+      position: absolute;
+      top: 14%;
+      left: 32%;
+      width: 12%;
+    }
+
+    &__splatter2 {
+      position: absolute;
+      top: 6%;
+      left: 0%;
+      width: 100%;
+    }
+
+    &__city1 {
+      position: absolute;
+      top: 16%;
+      left: 43%;
+      width: 43%;
+    }
+
+    &__road {
+      position: absolute;
+      top: 28%;
+      left: 49%;
+      width: 33%;
+    }
+
+    &__bus1 {
+      position: absolute;
+      top: 29%;
+      left: 65%;
+      width: 11%;
+    }
+
+    &__squarePattern {
+      position: absolute;
+      top: 26%;
+      left: 61.5%;
+      width: 31%;
+    }
+
+    &__splatter3 {
+      position: absolute;
+      top: 8%;
+      left: 10%;
+      width: 85%;
+    }
+
+    &__mountain1 {
+      position: absolute;
+      top: 42%;
+      left: 37%;
+      width: 31%;
+    }
+
+    &__earth {
+      position: absolute;
+      top: 49%;
+      left: 52%;
+      width: 25%;
+    }
+
+    &__bus2 {
+      position: absolute;
+      top: 44%;
+      left: 47%;
+      width: 20%;
+    }
+
+    &__sign1 {
+      position: absolute;
+      top: 43%;
+      left: 67%;
+      width: 15%;
+    }
+
+    &__cactus {
+      position: absolute;
+      top: 30%;
+      left: 40%;
+      width: 15%;
+      transform-origin: center bottom;
+    }
+
+    &__landscape {
+      position: absolute;
+      top: 52%;
+      left: 10%;
+      width: 33%;
+    }
+
+    &__ferrisWheel {
+      position: absolute;
+      top: 42%;
+      left: 17%;
+      width: 24%;
+    }
+
+    &__ferrisWheelShine {
+      position: absolute;
+      top: 31%;
+      left: 4%;
+      width: 45%;
+    }
+
+    &__concert {
+      position: absolute;
+      top: 51%;
+      left: 32.5%;
+      width: 60%;
+    }
+
+    &__tents {
+      position: absolute;
+      top: 64.5%;
+      left: 21%;
+      width: 28%;
+    }
+
+    &__cloud {
+      position: absolute;
+      top: 66%;
+      left: 40%;
+      width: 35%;
+    }
+  }
+
+  .section2 {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      width: $BS * 600;
+    }
+
+    .parallaxImage {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      height: 60%;
+      width: calc((100vw - #{$BS} * 700) / 2);
+      overflow: hidden;
+      transform: translateY(-50%);
+      border-radius: $BS * 200 0 0 $BS * 400;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 200%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .section3 {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      min-height: $BS * 540;
+    }
+
+    p {
+      width: $BS * 600;
+      display: none;
+
+      &.active {
+        display: block;
+        animation: fadeIn forwards 0.5s ease-out;
+
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY($BS * 100);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+
+  .mobile_only {
+    display: none;
+  }
+
+  .desktop_only {
+    display: block;
+  }
+}
+
+// Add styles
+@include styles();
+
+// Add basic styles with breakpoints
+@each $Breakpoint in $Breakpoints {
+  @include breakpoint(#{$Breakpoint}) {
+    @include styles(#{$Breakpoint});
+  }
+}
+
+// Add custom styles with breakpoints
+@include breakPointS() {
+  .mobile_only {
+    display: block;
+  }
+
+  .desktop_only {
+    display: none;
+  }
+}
